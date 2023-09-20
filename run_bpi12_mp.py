@@ -8,7 +8,7 @@ lr_groups.add_argument("--1e-3", action="store_true", help="Use a learning rate 
 args = parser.parse_args()
 
 from typing import List
-from bigdgcnn.ml.model_pytorch import BIG_DGCNN
+from bigdgcnn.ml.model import BIG_DGCNN
 import pm4py
 from bigdgcnn.util import print_log_statistics
 from torch.multiprocessing import Pool, cpu_count, freeze_support

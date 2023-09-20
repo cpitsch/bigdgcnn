@@ -6,7 +6,7 @@ parser.add_argument("-c", "--num-cores", type=int, default=-1, help="Number of c
 args = parser.parse_args()
 
 from typing import List
-from bigdgcnn.ml.model_pytorch import BIG_DGCNN
+from bigdgcnn.ml.model import BIG_DGCNN
 import pm4py
 from bigdgcnn.util import print_log_statistics
 from multiprocessing import Pool, cpu_count, freeze_support
