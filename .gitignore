@@ -1,0 +1,6 @@
+.venv
+*xes
+!Event Logs/eXdpn/exdpn_with_customs.xes
+*pnml
+*.pyc
+tests
