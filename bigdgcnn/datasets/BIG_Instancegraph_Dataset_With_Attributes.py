@@ -1,16 +1,13 @@
 # Torch
 import torch
-from torch_geometric.data import InMemoryDataset, download_url, Data
+from torch_geometric.data import InMemoryDataset, Data
 
 # PM4Py
-from pm4py import format_dataframe, convert_to_event_log
 import pm4py.util.xes_constants as xes
 from pm4py.objects.log.obj import EventLog
 from pm4py.objects.petri_net.obj import PetriNet, Marking
 
 # Misc
-import pandas as pd
-from pathlib import Path
 import networkx as nx
 from typing import List, Tuple
 import numpy as np
@@ -18,7 +15,6 @@ from statistics import mean, stdev
 from tqdm.auto import tqdm
 
 # Internal
-from bigdgcnn.data_processing.instance_graphs import discover_instance_graphs_big
 from bigdgcnn.data_processing import make_training_data, discover_model_imf
 from bigdgcnn.util import add_artificial_start_end_events
 
@@ -191,8 +187,8 @@ class BIG_Instancegraph_Dataset_With_Attributes(InMemoryDataset):
         edge_index = torch.tensor(np.array([
             [edge[0][0], edge[1][0]] # Use the index of the node in the case as the edge index
             for edge in graph.edges
-        ]), dtype=torch.long)
-        x = torch.tensor(np.array([self._make_feature_vector(node, graph.caseid) for node in sorted(graph.nodes, key=lambda v: v[0])]), dtype=torch.float)
+        ]), dtype=torch.int32)
+        x = torch.tensor(np.array([self._make_feature_vector(node, graph.caseid) for node in sorted(graph.nodes, key=lambda v: v[0])]), dtype=torch.float32)
         data = Data(
             x=x,
             edge_index=edge_index.t().contiguous(),
