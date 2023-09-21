@@ -81,7 +81,7 @@ class BIG_Instancegraph_Dataset_With_Attributes(InMemoryDataset):
             self.eventlog = add_artificial_start_end_events(eventlog)
         else:
             self.eventlog = eventlog
-        # I did the activities_index wrong. Rerun tomorrow with import bigdgcnn.datasets as datasets; from pm4py import read_xes; log = read_xes("./helpdesk.xes.gz"); hds = datasets.BIG_Instancegraph_Dataset(log, "helpdesk")
+
         self.activities_index = list(sorted(list(set(evt[xes.DEFAULT_NAME_KEY] for case in self.eventlog for evt in case))))
         self.logname = logname
         self.activities_index
@@ -92,12 +92,6 @@ class BIG_Instancegraph_Dataset_With_Attributes(InMemoryDataset):
 
         super().__init__(root, transform)
         self.data, self.slices = torch.load(self.processed_paths[0])
-
-        # self.num_features = 1 + len(self.activities_index)
-        # print(self.num_features)
-        # self.num_node_features = self.num_features
-        # self.num_edge_features = 0
-        # self.num_classes = len(self.activities_index)
 
     @property
     def raw_file_names(self):
