@@ -269,7 +269,7 @@ class BIG_DGCNN():
         ## When using a seed, the training is not reproducible unless I set the random_state here. Which doesn't make sense because according
         ## To the documentation, random_state controls the shuffling (which is turned off)...
         self.train_split, self.test_split = sklearn_train_test_split(self.dataset, train_size=train_test_split, shuffle=False, random_state=self.seed)
-        self.train_split, self.validation_split = sklearn_train_test_split(self.train, train_size=train_validation_split, shuffle=False, random_state=self.seed)
+        self.train_split, self.validation_split = sklearn_train_test_split(self.train_split, train_size=train_validation_split, shuffle=False, random_state=self.seed)
 
         self.train_data = DataLoader(self.train_split, batch_size=self.batch_size, shuffle=True)
         self.validation_data = DataLoader(self.validation_split, batch_size=self.batch_size, shuffle=True)
