@@ -94,7 +94,7 @@ class BIG_Instancegraph_Dataset(InMemoryDataset):
         edge_index = torch.tensor(np.array([
             [edge[0][0], edge[1][0]] # Use the index of the node in the case as the edge index
             for edge in graph.edges
-        ]), dtype=torch.int32)
+        ]), dtype=torch.int64)
         x = torch.tensor(np.array([self._make_feature_vector(node) for node in sorted(graph.nodes, key=lambda v: v[0])]), dtype=torch.float32)
         data = Data(
             x=x,
