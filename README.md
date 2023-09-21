@@ -6,6 +6,29 @@ This project was created in the context of the *Machine Learning Applications in
 - Event Logs used in the evaluation are in the [Event Logs](./Event%20Logs/) directory
 - The CPNTools model used to generate the synthetic event log is in the [CPNTools](./CPNTools/) directory
 
+# Usage
+
+```python
+from bigdgcnn.ml.model import BIG_DGCNN
+from pm4py import read_xes
+
+log = read_xes("path/to/event/log.xes")
+model = BIG_DGCNN(
+  sort_pooling_k = 30,
+  layer_sizes = [32]*4,
+  batch_size = 32,
+  learning_rate = 1e-3,
+  dropout_rate = 0.1,
+  dense_layer_sizes = [32],
+  epochs = 100
+)
+
+model.train(log, logname="name-to-save-dataset-as")
+# Torch will save the extracted dataset using the given name
+# Subsequent training using this name will load the dataset from disk
+model.plot_training_history()
+```
+
 # Running The Experiments
 ## Event Logs
 - [Helpdesk Event Log](https://data.mendeley.com/datasets/39bp3vv62t/1)
