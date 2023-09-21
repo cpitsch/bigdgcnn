@@ -39,7 +39,7 @@ The results of these experiments can be read from the `summary.txt` files in the
 - For the BPI12 Event Log, our results deviated from the original paper, so we ran the experiment again with Learning Rate 10<sup>-4</sup>
     - `python run_bpi12_mp.py --1e-4`
     - [Results Summary](./Experiments/BPI12/LR_1e-4/summary.txt)
-- The Helpdesk Event Log contains a number of traces with duplicate events. To get an idea of the noise robustness of the algorithm, we run it again on a repaired version of the event log, where duplicate events have been removed.
+- The Helpdesk Event Log contains a number of traces with duplicate events. To get an idea of the noise robustness of the algorithm, we run it again on a repaired version of the event log, where cases containing duplicate events have been removed.
   - `python run_helpdesk_repaired_mp.py`
   - [Results Summary](./Experiments/Helpdesk%20Repaired/summary.txt)
 
@@ -49,11 +49,9 @@ The results of these experiments can be read from the `summary.txt` files in the
 
 To analyse the prediction capability of the algorithm, as well as the potential of the algorithm when adding a data perspective to the model, we run it on a synthetic event log containing complex decision points based in the data perspective.
 
-<ol style="list-style-type: lower-alpha;">
-  <li><i>Request Manager Approval</i> if the total price of the purchase order is at least $800. <i>Request Standard Approval</i> otherwise.</li>
-  <li><i>Approve Purchase</i> if the total price is at most $1000 and the item’s category is not <i>“Fun”</i> and the supplier is not <i>“Scamming Corp.”</i>. <i>Reject Purchase</i> otherwise.</li>
-  <li><i>Hold at Customs</i> if the total price is at least $300 or the origin is Non-EU. <i>Pass Customs</i> otherwise.</li>
-</ol>
+- *Request Manager Approval* if the total price of the purchase order is at least $800. *Request Standard Approval* otherwise.
+- *Approve Purchase* if the total price is at most $1000 and the item’s category is not *“Fun”* and the supplier is not *“Scamming Corp.”*. *Reject Purchase* otherwise.
+- *Hold at Customs* if the total price is at least $300 or the origin is Non-EU. *Pass Customs* otherwise.
 
 #### Experiments
 - We first run the BIG-DGCNN Algorithm 10 times on the synthetic event log as-is, not taking the data perspective into account
