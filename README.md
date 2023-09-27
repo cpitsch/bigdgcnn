@@ -1,6 +1,6 @@
 This project was created in the context of the *Machine Learning Applications in Process Mining* Seminar. It contains an implementation of the BIG-DGCNN Algorithm by Chiorrini et al. [^big-dgcnn-algorithm].
 
-The BIG-DGCNN Algorithm predicts the next activity of a live process instance using a Deep Graph Convolutional Neural Network (DGCNN). As input to the DGCNN, the algorithm uses Instance Graphs, graphical representations of process instances, which are computed using the BIG Algorithm[^big-algorithm].
+The BIG-DGCNN Algorithm predicts the next activity of a process instance using a Deep Graph Convolutional Neural Network (DGCNN). As input to the DGCNN, the algorithm uses graphical representations of process instances, Instance Graphs, which are computed using the BIG Algorithm[^big-algorithm].
 
 [^big-dgcnn-algorithm]: Chiorrini et al. Exploiting Instance Graphs and Graph Neural Networks for Next Activity Prediction. https://doi.org/10.1007/978-3-030-98581-3_9
 [^big-algorithm]: Diamantini et al. Building instance graphs for highly variable processes. https://doi.org/10.1016/j.eswa.2016.04.021
